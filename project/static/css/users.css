@@ -1,0 +1,51 @@
+.users {
+	display: flex;
+	margin: 20px auto 0;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	max-width: 1000px;
+}
+
+.user {
+	border: 0.5px solid #111;
+	border-radius: 2px;
+	padding: 15px;
+	margin: 10px;
+}
+
+.user:hover {
+	background: #eee;
+	cursor: pointer;
+}
+
+.fields {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.field {
+	font-size: 1.25em;
+	color: #111;
+	margin: 5px;
+}
+
+i.fas, i.far {
+	margin-right: 10px;
+}
+
+button {
+	display: block;
+	margin: 10px auto;
+	width: 250px;
+	background: #398ad7;
+	color: #111;
+	padding: 15px;
+	font-size: 1.5em;
+}
+
+button:hover {
+	background: #59aaf7;
+	cursor: pointer;
+}

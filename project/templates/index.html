@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="templates/style.css">
-	<title>Apartment</title>
-</head>
-<body>
-	<header>
-	</header>
+{% extends "layout.html" %}
 
-	<main>
+{% block title %}House{% endblock %}
 
-		<form action='/register'>
-			<button type="submit">Register</button>
-		</form>
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/house.css') }}"/>
+{% endblock %}
+
+{% block main %}
+	<form action="/" method="post">
 		
-	</main>
-	<h1>It is still working</h1>	
-</body>
-</html>
+		{{ form.csrf_token }}
+		{{ form.passcode(readonly=true) }}
+		
+		<div class="buttons">
+			<div id="_1" class="button">1</div>
+			<div id="_2" class="button">2</div>
+			<div id="_3" class="button">3</div>
+			<div id="_4" class="button">4</div>
+			<div id="_5" class="button">5</div>
+			<div id="_6" class="button">6</div>
+			<div id="_7" class="button">7</div>
+			<div id="_8" class="button">8</div>
+			<div id="_9" class="button">9</div>
+			<div id="delete" class="button"><i class="fas fa-times"></i></div>
+			<div id="_0" class="button">0</div>
+			<button type="submit" id="submit" class="button"><i class="fas fa-check"></i></button>
+		</div>
+	
+	</form>
+{% endblock %}

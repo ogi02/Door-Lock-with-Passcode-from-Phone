@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Staff Members{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}"/>
+{% endblock %}
+
+{% block main %}
+
+<form action='/new_staff'>
+	<button type="submit">New Staff Member</button>
+</form>
+
+<div class="users">
+	{% for member in staff %}
+		<div class="user">
+			<ul class="fields">
+				<li class="field">
+					<i class="fas fa-user-cog"></i>{{ member.name }} {{ member.surname }}
+				</li>
+				<li class="field">
+					<i class="fas fa-phone"></i>{{ member.phone_number }}
+				</li>
+				<li class="field">
+					<i class="fas fa-address-card"></i>{{ member.position }}
+				</li>
+				<li class="field">
+					<i class="fas fa-key"></i>{{ member.passcode }}
+				</li>
+			</ul>
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

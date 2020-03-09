@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}"/>
+{% endblock %}
+
+{% block main %}
+	<form action="/login" method="post">
+		{{ form.csrf_token }}
+		
+		<h1>Sign In</h1>
+		
+		{{ form.username(class_="input") }}
+		
+		{{ form.password(class_="input") }}
+		<ul class="errors">
+			{% for error in form.password.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+		
+		<button type="submit" id="button">Login</button>
+
+		<a href="/register" class="link">
+			Don't have an account? Create one now!
+		</a>
+		
+	</form>
+{% endblock %}

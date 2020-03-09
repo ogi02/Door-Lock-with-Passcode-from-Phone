@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Guests{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}"/>
+{% endblock %}
+
+{% block main %}
+
+<form action='/new_guest'>
+	<button type="submit">New Guest</button>
+</form>
+
+<div class="users">
+	{% for guest in guests %}
+		<div class="user">
+			<ul class="fields">
+				<li class="field">
+					<i class="fas fa-user"></i>{{ guest.name }} {{ guest.surname }}
+				</li>
+				<li class="field">
+					<i class="fas fa-phone"></i>{{ guest.phone_number }}
+				</li>
+				<li class="field">
+					<i class="far fa-calendar-check"></i>{{ guest.entry_date }}
+				</li>
+				<li class="field">
+					<i class="far fa-calendar-times"></i>{{ guest.expiry_date }}
+				</li>
+				<li class="field">
+					<i class="fas fa-key"></i>{{ guest.passcode }}
+				</li>
+			</ul>
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

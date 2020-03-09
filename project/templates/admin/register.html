@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}"/>
+{% endblock %}
+
+{% block main %}
+	<form action="/register" method="post">
+		{{ form.csrf_token }}
+		
+		<h1>Create Your Account</h1>
+		
+		{{ form.username(class_="input") }}
+		<ul class="errors">
+			{% for error in form.username.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+		
+		{{ form.name(class_="input") }}
+		
+		{{ form.surname(class_="input") }}
+		
+		{{ form.password(class_="input") }}
+		<ul class="errors">
+			{% for error in form.password.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+		
+		{{ form.confirm(class_="input") }}
+		<ul class="errors">
+			{% for error in form.confirm.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+
+		{{ form.key(class_="input") }}
+		<ul class="errors">
+			{% for error in form.key.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+
+		{{ form.passcode(readonly=true, class_="input") }}
+		
+		<button type="submit" id="button">Register</button>
+
+		<a href="/login" class="link">
+			Already have an account? Log in!
+		</a>
+		
+	</form>
+{% endblock %}

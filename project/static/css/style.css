@@ -1,0 +1,10 @@
+/* Stylesheet aplicable for all pages */
+
+* {
+	box-sizing: border-box;
+	font-family: 'Tomorrow', sans-serif;
+}
+
+body {
+	margin: 0;
+}

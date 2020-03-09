@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}"/>
+{% endblock %}
+
+{% block main %}
+	<div class="users">
+		<div class="user">
+			<ul class="fields">
+				<li class="field">
+					<i class="fas fa-user-tie"></i>{{ admin.name }} {{ admin.surname }}
+				</li>
+				<li class="field">
+					<i class="far fa-grin"></i>{{ admin.username }}
+				</li>
+				<li class="field">
+					<i class="fas fa-address-card"></i>Owner
+				</li>
+				<li class="field">
+					<i class="fas fa-key"></i>{{ admin.passcode }}
+				</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title>{% block title %}{% endblock %}</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}"/>
+
+	<link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}"/>
+
+	{% block css %}{% endblock %}
+
+	<script src="https://kit.fontawesome.com/0a659234d5.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar">
+			<a href="/">
+				<i class="fas fa-home home"></i>
+			</a>
+			<span class="navbar-toggle" id="js-navbar-toggle">
+				<i class="fas fa-bars toggle"></i>
+			</span>
+			<ul class="main-nav" id="js-menu">
+				<li>
+					<a href="/guests" class="nav-links">Guests</a>
+				</li>
+				<li>
+					<a href="/staff" class="nav-links">Staff</a>
+				</li>
+				{% if session.get("SIGNED_IN") %}
+					<li>
+						<a href="/profile" class="nav-links">Profile</a>
+					</li>
+					<li>
+						<a href="/logout" class="nav-links">Logout</a>
+					</li>
+				{% else %}
+					<li>
+						<a href="/login" class="nav-links">Login</a>
+					</li>
+					<li>
+						<a href="/register" class="nav-links">Register</a>
+					</li>
+				{% endif %}
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		{% block main %}{% endblock %}
+	</main>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+	<footer>
+		{% block footer %}{% endblock %}
+	</footer>
+
+</body>
+
+</html>

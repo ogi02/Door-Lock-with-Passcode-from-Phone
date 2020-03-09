@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}New Guest{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}"/>
+{% endblock %}
+
+{% block main %}
+
+	<form action="/new_staff" method="post">
+		{{ form.csrf_token }}
+		
+		<h1>Create A New Staff Member</h1>		
+		
+		{{ form.name(class_="input") }}
+		<ul class="errors">
+			{% for error in form.name.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+		
+		{{ form.surname(class_="input") }}
+		<ul class="errors">
+			{% for error in form.surname.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+		
+		{{ form.phone_number(class_="input") }}
+		<ul class="errors">
+			{% for error in form.phone_number.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+
+		{{ form.position(class_="input") }}
+		<ul class="errors">
+			{% for error in form.position.errors %}
+				<li class="error-message">{{ error }}</li>
+			{% endfor %}
+		</ul>
+
+		{{ form.passcode(readonly=true, class_="input") }}
+		
+		<button type="submit" id="button">Continue</button>
+		
+	</form>
+{% endblock %}
