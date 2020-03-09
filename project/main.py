@@ -216,3 +216,6 @@ def guests():
 def staff():
 	staff = Staff.all()
 	return render_template("staff/staff.html", staff = staff)
+
+if __name__ == '__main__':
+	app.run(debug=True, port=80, host='0.0.0.0')
