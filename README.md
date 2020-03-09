@@ -6,3 +6,4 @@ tova po4ti raboti <3
 opit 2
 opit nomer 3
 mamka mu
+otchaqh se
