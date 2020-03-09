@@ -7,9 +7,8 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-flask-wtf = "*"
-python-otenv = "*"
 python-dotenv = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.7"
