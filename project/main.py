@@ -6,7 +6,7 @@ from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, session
 
 # imports from .py files
-from house import house
+# from house import house
 from class_admin import Admin
 from class_guest import Guest
 from class_staff import Staff
@@ -14,7 +14,7 @@ from class_passcode import Passcode
 from class_activation import Activation
 
 from configuration_app import app
-from configuration_log import info_logger, error_logger
+#from configuration_log import info_logger, error_logger
 from configuration_form import check_password, RegistrationForm, LoginForm, NewGuestForm, NewStaffForm, HousePasscodeForm 
 
 # require login config

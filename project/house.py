@@ -35,12 +35,10 @@ def house():
 		passcode = Passcode.get_by_passcode(value)
 		now = date.today().strftime("%Y-%m-%d")
 		if passcode and ((passcode.entry_date < now and now < passcode.expiry_date) or passcode.entry_date == "forever"):
-			print("vlezna")
 			GPIO.output(GreenLightPin, True)
 			time.sleep(1)
 			GPIO.output(GreenLightPin, False)
 		else:
-			print("ne vlezna")
 			GPIO.output(RedLightPin, True)
 			time.sleep(1)
 			GPIO.output(RedLightPin, False)
